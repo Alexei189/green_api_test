@@ -8,10 +8,6 @@ export type ChatMessage = {
   status?: "pending" | "sent" | "failed";
 };
 
-export type ChatPreview = {
-  id: string;
-  name: string;
-  preview: string;
-  time: string;
-  initials: string;
+export type MessageBubbleProps = {
+  message: ChatMessage;
 };

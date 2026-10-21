@@ -1,11 +1,8 @@
 import { useState } from "react";
 import type { FormEvent, KeyboardEvent } from "react";
 
-type MessageInputProps = {
-  onSend: (text: string) => void | Promise<void>;
-  disabled?: boolean;
-  sending?: boolean;
-};
+import styles from "./styles.module.css";
+import type { MessageInputProps } from "./types";
 
 export function MessageInput({
   onSend,
@@ -38,9 +35,9 @@ export function MessageInput({
   };
 
   return (
-    <form className="chat-composer" onSubmit={handleSubmit}>
+    <form className={styles.chatComposer} onSubmit={handleSubmit}>
       <textarea
-        className="chat-composer__field"
+        className={styles.chatComposerField}
         placeholder={
           disabled && !sending
             ? "Сначала сохраните настройки инстанса"
@@ -55,7 +52,7 @@ export function MessageInput({
       />
       <button
         type="submit"
-        className="chat-composer__send"
+        className={styles.chatComposerSend}
         disabled={disabled || !text.trim()}
         aria-label="Отправить"
       >

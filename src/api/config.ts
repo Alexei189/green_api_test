@@ -4,7 +4,7 @@ const STORAGE_KEY = "green-api-credentials";
 const CHAT_ID_KEY = "green-api-chat-id";
 
 const DEFAULT_CREDENTIALS: GreenApiCredentials = {
-  apiUrl: import.meta.env.VITE_GREEN_API_URL ?? "https://api.green-api.com",
+  apiUrl: import.meta.env.VITE_GREEN_API_URL ?? "http://localhost:3001",
   idInstance: import.meta.env.VITE_GREEN_API_ID_INSTANCE ?? "",
   apiTokenInstance: import.meta.env.VITE_GREEN_API_TOKEN_INSTANCE ?? "",
 };

@@ -2,13 +2,8 @@ import type { FormEvent } from "react";
 import { useState } from "react";
 
 import { phoneToChatId } from "../../api/phoneChatId";
-import type { GreenApiCredentials } from "../../api/types";
-
-type InstanceSettingsProps = {
-  credentials: GreenApiCredentials;
-  chatId: string;
-  onSave: (credentials: GreenApiCredentials, chatId: string) => void;
-};
+import styles from "./styles.module.css";
+import type { InstanceSettingsProps } from "./types";
 
 export function InstanceSettings({
   credentials,
@@ -46,10 +41,10 @@ export function InstanceSettings({
   };
 
   return (
-    <form className="instance-settings" onSubmit={handleSubmit}>
-      <p className="instance-settings__hint">Параметры инстанса GREEN-API</p>
+    <form className={styles.instanceSettings} onSubmit={handleSubmit}>
+      <p className={styles.instanceSettingsHint}>Параметры инстанса GREEN-API</p>
 
-      <label className="instance-settings__field">
+      <label className={styles.instanceSettingsField}>
         <span>apiUrl</span>
         <input
           type="url"
@@ -57,12 +52,12 @@ export function InstanceSettings({
           onChange={(event) =>
             setForm((prev) => ({ ...prev, apiUrl: event.target.value }))
           }
-          placeholder="https://api.green-api.com"
+          placeholder="http://localhost:3001"
           required
         />
       </label>
 
-      <label className="instance-settings__field">
+      <label className={styles.instanceSettingsField}>
         <span>idInstance</span>
         <input
           type="text"
@@ -76,7 +71,7 @@ export function InstanceSettings({
         />
       </label>
 
-      <label className="instance-settings__field">
+      <label className={styles.instanceSettingsField}>
         <span>apiTokenInstance</span>
         <input
           type="password"
@@ -93,7 +88,7 @@ export function InstanceSettings({
         />
       </label>
 
-      <label className="instance-settings__field">
+      <label className={styles.instanceSettingsField}>
         <span>Номер телефона (РФ / РБ)</span>
         <input
           type="tel"
@@ -109,18 +104,18 @@ export function InstanceSettings({
       </label>
 
       {preview.ok ? (
-        <p className="instance-settings__preview">
+        <p className={styles.instanceSettingsPreview}>
           chatId: <code>{preview.chatId}</code>
         </p>
       ) : null}
 
       {phoneError ? (
-        <p className="instance-settings__error" role="alert">
+        <p className={styles.instanceSettingsError} role="alert">
           {phoneError}
         </p>
       ) : null}
 
-      <button type="submit" className="instance-settings__save">
+      <button type="submit" className={styles.instanceSettingsSave}>
         {saved ? "Сохранено" : "Сохранить"}
       </button>
     </form>

@@ -14,14 +14,15 @@ import {
   useNotificationPolling,
   type IncomingChatMessage,
 } from "../../hooks/useNotificationPolling";
-import { ChatHeader } from "./ChatHeader";
-import { ChatSidebar } from "./ChatSidebar";
-import { InstanceSettings } from "./InstanceSettings";
-import { MessageInput } from "./MessageInput";
-import { MessageList } from "./MessageList";
-import type { ChatMessage, ChatPreview } from "./types";
-
-import "./chat.css";
+import { ChatHeader } from "../ChatHeader/ChatHeader";
+import { ChatSidebar } from "../ChatSidebar/ChatSidebar";
+import type { ChatPreview } from "../ChatSidebar/types";
+import { InstanceSettings } from "../InstanceSettings/InstanceSettings";
+import { MessageInput } from "../MessageInput/MessageInput";
+import type { ChatMessage } from "../MessageBubble/types";
+import { MessageList } from "../MessageList/MessageList";
+import styles from "./styles.module.css";
+import type { ListenStatus } from "./types";
 
 function formatTime(date = new Date()) {
   return date.toLocaleTimeString("ru-RU", {
@@ -52,9 +53,7 @@ export function ChatLayout() {
   const [messages, setMessages] = useState<ChatMessage[]>([]);
   const [sending, setSending] = useState(false);
   const [error, setError] = useState<string | null>(null);
-  const [listenStatus, setListenStatus] = useState<
-    "idle" | "listening" | "error"
-  >("idle");
+  const [listenStatus, setListenStatus] = useState<ListenStatus>("idle");
 
   const normalizedChatId = normalizeChatId(chatId);
 
@@ -150,7 +149,7 @@ export function ChatLayout() {
         : "ожидание настроек";
 
   return (
-    <div className="chat-app">
+    <div className={styles.chatApp}>
       <ChatSidebar
         chats={chatId ? [activeChat] : []}
         activeChatId={activeChat.id}
@@ -164,14 +163,14 @@ export function ChatLayout() {
         }
       />
 
-      <section className="chat-panel" aria-label="Окно чата">
+      <section className={styles.chatPanel} aria-label="Окно чата">
         <ChatHeader
           name={activeChat.name}
           initials={activeChat.initials}
           status={statusLabel}
         />
         {error ? (
-          <div className="chat-error" role="alert">
+          <div className={styles.chatError} role="alert">
             {error}
           </div>
         ) : null}
