@@ -1,0 +1,134 @@
+.chatSidebar {
+  display: flex;
+  flex-direction: column;
+  width: min(38%, 420px);
+  min-width: 280px;
+  background: var(--wa-sidebar-bg);
+  border-right: 1px solid var(--wa-border);
+}
+
+.chatSidebarHeader {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  height: 60px;
+  padding: 0 16px;
+  background: var(--wa-panel);
+  flex-shrink: 0;
+}
+
+.chatSidebarTitle {
+  margin: 0;
+  font-size: 1.1rem;
+  font-weight: 600;
+}
+
+.chatSidebarSearch {
+  padding: 8px 12px;
+  background: var(--wa-sidebar-bg);
+  border-bottom: 1px solid var(--wa-border);
+}
+
+.chatSidebarSearch input {
+  width: 100%;
+  border: none;
+  outline: none;
+  border-radius: 8px;
+  padding: 9px 12px 9px 36px;
+  background: var(--wa-panel);
+  color: var(--wa-text);
+  font-size: 0.9rem;
+}
+
+.chatList {
+  flex: 1;
+  overflow-y: auto;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.chatListItem {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  width: 100%;
+  padding: 12px 16px;
+  border: none;
+  border-bottom: 1px solid var(--wa-border);
+  background: transparent;
+  text-align: left;
+  cursor: pointer;
+  color: inherit;
+  font: inherit;
+}
+
+.chatListItem:hover {
+  background: var(--wa-sidebar-hover);
+}
+
+.chatListItemActive {
+  background: #f0f2f5;
+}
+
+.chatAvatar {
+  display: grid;
+  place-items: center;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: #dfe5e7;
+  color: #54656f;
+  font-weight: 600;
+  flex-shrink: 0;
+}
+
+.chatListMeta {
+  min-width: 0;
+  flex: 1;
+}
+
+.chatListRow {
+  display: flex;
+  justify-content: space-between;
+  gap: 8px;
+  align-items: baseline;
+}
+
+.chatListName {
+  font-weight: 500;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.chatListTime {
+  font-size: 0.75rem;
+  color: var(--wa-muted);
+  flex-shrink: 0;
+}
+
+.chatListPreview {
+  margin: 2px 0 0;
+  font-size: 0.85rem;
+  color: var(--wa-muted);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.chatListEmpty {
+  padding: 16px;
+  font-size: 0.85rem;
+  color: var(--wa-muted);
+}
+
+@media (max-width: 768px) {
+  .chatSidebar {
+    width: 100%;
+    min-width: 0;
+    max-height: 42%;
+    border-right: none;
+    border-bottom: 1px solid var(--wa-border);
+  }
+}

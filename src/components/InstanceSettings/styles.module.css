@@ -1,0 +1,66 @@
+.instanceSettings {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 12px;
+  border-bottom: 1px solid var(--wa-border);
+  background: #fafafa;
+}
+
+.instanceSettingsHint {
+  margin: 0 0 4px;
+  font-size: 0.8rem;
+  color: var(--wa-muted);
+}
+
+.instanceSettingsField {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  font-size: 0.75rem;
+  color: var(--wa-muted);
+}
+
+.instanceSettingsField input {
+  border: 1px solid var(--wa-border);
+  border-radius: 6px;
+  padding: 8px 10px;
+  font-size: 0.85rem;
+  color: var(--wa-text);
+  background: #fff;
+  outline: none;
+}
+
+.instanceSettingsField input:focus {
+  border-color: var(--wa-accent);
+}
+
+.instanceSettingsSave {
+  margin-top: 4px;
+  border: none;
+  border-radius: 6px;
+  padding: 9px 12px;
+  background: var(--wa-accent);
+  color: #fff;
+  font-size: 0.85rem;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.instanceSettingsPreview {
+  margin: 0;
+  font-size: 0.75rem;
+  color: var(--wa-muted);
+  word-break: break-all;
+}
+
+.instanceSettingsPreview code {
+  color: var(--wa-text);
+  font-size: 0.78rem;
+}
+
+.instanceSettingsError {
+  margin: 0;
+  font-size: 0.75rem;
+  color: #b71c1c;
+}
