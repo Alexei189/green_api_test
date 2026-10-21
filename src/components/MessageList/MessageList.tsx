@@ -1,11 +1,8 @@
 import { useEffect, useRef } from "react";
 
-import { MessageBubble } from "./MessageBubble";
-import type { ChatMessage } from "./types";
-
-type MessageListProps = {
-  messages: ChatMessage[];
-};
+import { MessageBubble } from "../MessageBubble/MessageBubble";
+import styles from "./styles.module.css";
+import type { MessageListProps } from "./types";
 
 export function MessageList({ messages }: MessageListProps) {
   const bottomRef = useRef<HTMLDivElement>(null);
@@ -15,8 +12,8 @@ export function MessageList({ messages }: MessageListProps) {
   }, [messages]);
 
   return (
-    <div className="chat-messages">
-      <div className="chat-messages__list">
+    <div className={styles.chatMessages}>
+      <div className={styles.chatMessagesList}>
         {messages.map((message) => (
           <MessageBubble key={message.id} message={message} />
         ))}

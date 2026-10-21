@@ -11,9 +11,29 @@ body,
   height: 100%;
 }
 
+#root {
+  padding: 20px;
+}
+
+:root {
+  --wa-header: #008069;
+  --wa-header-dark: #075e54;
+  --wa-accent: #00a884;
+  --wa-sidebar-bg: #ffffff;
+  --wa-sidebar-hover: #f0f2f5;
+  --wa-chat-bg: #efeae2;
+  --wa-panel: #f0f2f5;
+  --wa-outgoing: #d9fdd3;
+  --wa-incoming: #ffffff;
+  --wa-text: #111b21;
+  --wa-muted: #667781;
+  --wa-border: #e9edef;
+  --wa-input-bg: #ffffff;
+}
+
 body {
   font-family: "Segoe UI", "Helvetica Neue", Helvetica, Arial, sans-serif;
   line-height: 1.5;
-  color: #111b21;
+  color: var(--wa-text);
   background: #0b141a;
 }
